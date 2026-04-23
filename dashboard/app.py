@@ -171,7 +171,7 @@ scores_df = pd.DataFrame(scores_filtered) if scores_filtered else pd.DataFrame()
 
 # ── Header ────────────────────────────────────────────────────────────────────
 st.title("📈 IPO GMP Predictor")
-st.caption("Grey Market Premium based listing prediction — Data: ipowatch.in")
+st.caption("Grey Market Premium based listing prediction — Data: investorgain.com")
 
 # ── Top IPO Opportunity ───────────────────────────────────────────────────────
 if scores_raw:
@@ -423,5 +423,5 @@ with st.expander("📋 Raw GMP Data"):
 # ── Footer ────────────────────────────────────────────────────────────────────
 last_refresh = scores_raw[0].get("scored_at", "—") if scores_raw else "—"
 st.caption(
-    f"Last refreshed: {last_refresh} | Data: ipowatch.in | Not financial advice"
+    f"Last refreshed: {last_refresh} | Data: investorgain.com | Not financial advice"
 )
