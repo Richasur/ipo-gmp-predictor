@@ -2,6 +2,20 @@
 
 A production-grade IPO Grey Market Premium (GMP) analytics and prediction system that automatically scrapes, scores, tracks, and alerts on IPO listing opportunities in the Indian stock market.
 
+![GitHub Actions](https://github.com/AdityaSharma2804/ipo-gmp-predictor/actions/workflows/scrape.yml/badge.svg)
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![Streamlit](https://img.shields.io/badge/live-dashboard-brightgreen)
+
+---
+
+## Live Demo
+
+🔴 **Live Dashboard:** [ipo-gmp-predictor-uqlpwgfygnwypgwmgwezo7.streamlit.app](https://ipo-gmp-predictor-uqlpwgfygnwypgwmgwezo7.streamlit.app)
+
+Tracks 60+ IPOs in real-time. Auto-refreshes every 30 minutes via GitHub Actions — no manual intervention needed.
+
+![Dashboard Preview](assets/dashboard.png)
+
 ---
 
 ## Tech Stack
@@ -34,7 +48,7 @@ A production-grade IPO Grey Market Premium (GMP) analytics and prediction system
 ### Step 3 — Clone and install
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ipo-gmp-predictor
+git clone https://github.com/AdityaSharma2804/ipo-gmp-predictor
 cd ipo-gmp-predictor
 pip install -r requirements.txt
 ```
@@ -139,6 +153,8 @@ ipo-gmp-predictor/
 ├── .github/
 │   └── workflows/
 │       └── scrape.yml           ← GitHub Actions cron (every 30 min)
+├── assets/
+│   └── dashboard.png            ← Dashboard screenshot
 ├── scraper/
 │   ├── ipowatch_scraper.py      ← Primary data source
 │   └── chittorgarh_scraper.py   ← Secondary data source
@@ -186,4 +202,4 @@ Streamlit dashboard auto-refreshes
 
 ---
 
-> ⚠️ Data sourced from ipowatch.in and chittorgarh.com. For informational purposes only — not financial advice.
+> ⚠️ Data sourced from investorgain.com and chittorgarh.com. For informational purposes only — not financial advice.
