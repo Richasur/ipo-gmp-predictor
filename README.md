@@ -18,6 +18,23 @@ Tracks 60+ IPOs in real-time. Auto-refreshes every 30 minutes via GitHub Actions
 
 ---
 
+## Model Performance
+
+The system has been tracking predicted vs actual listing gains on every IPO since launch.
+
+| Metric | Value |
+|---|---|
+| Predictions Tracked | 2,987 |
+| Direction Accuracy | 95.6% |
+| Avg Absolute Error | 6.18% |
+| Tracking Since | 2026-04-21 |
+
+Every time an IPO gets listed, the pipeline automatically records the predicted gain vs actual gain and updates these metrics. No manual data entry.
+
+![Model Performance](assets/model_performance.png)
+
+---
+
 ## Tech Stack
 
 | Layer      | Technology                        |
@@ -154,7 +171,8 @@ ipo-gmp-predictor/
 │   └── workflows/
 │       └── scrape.yml           ← GitHub Actions cron (every 30 min)
 ├── assets/
-│   └── dashboard.png            ← Dashboard screenshot
+│   ├── dashboard.png            ← Dashboard screenshot
+│   └── model_performance.png   ← Model performance screenshot
 ├── scraper/
 │   ├── ipowatch_scraper.py      ← Primary data source
 │   └── chittorgarh_scraper.py   ← Secondary data source
