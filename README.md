@@ -146,20 +146,70 @@ ALERT_EMAIL  = "..."
 
 ## Scoring System
 
-| Factor        | Max Points | Logic                                     |
-|---------------|-----------|-------------------------------------------|
-| GMP %         | 15        | ≥50% → 15pts, ≥30% → 12pts, etc.         |
-| Trend (delta) | 10        | Rising → 10pts, Flat → 5pts, Falling → 0 |
-| IPO Status    | 10        | Open → 10pts, Upcoming → 7pts, Closed → 3|
-| Est. Gain     | 5         | ≥50% → 5pts, ≥20% → 4pts, etc.           |
-| **Total**     | **40**    |                                           |
+Every IPO is scored out of 40 points across 4 factors on each pipeline run.
 
-### Signals
-- **STRONG BUY** → Score ≥ 30
-- **BUY**        → Score ≥ 22
-- **HOLD**       → Score ≥ 15
-- **WEAK**       → Score ≥ 8
-- **AVOID**      → Score < 8
+### Factor 1 — GMP % Strength (max 15 pts)
+
+| GMP % | Points |
+|---|---|
+| ≥ 50% | 15 |
+| ≥ 30% | 12 |
+| ≥ 20% | 10 |
+| ≥ 10% | 7  |
+| ≥ 5%  | 4  |
+| > 0%  | 2  |
+| ≤ 0%  | 0  |
+
+### Factor 2 — Trend / LAG Delta (max 10 pts)
+
+| GMP Delta (vs previous scrape) | Points |
+|---|---|
+| > +5% | 10 |
+| > +2% | 8  |
+| > 0%  | 6  |
+| = 0%  | 5  |
+| > -2% | 3  |
+| > -5% | 1  |
+| ≤ -5% | 0  |
+
+### Factor 3 — IPO Status (max 10 pts)
+
+| Status | Points |
+|---|---|
+| Open     | 10 |
+| Upcoming | 7  |
+| Closed   | 3  |
+| Listed   | 2  |
+| Unknown  | 5  |
+
+### Factor 4 — Est. Listing Gain (max 5 pts)
+
+| Est. Gain | Points |
+|---|---|
+| ≥ 50% | 5 |
+| ≥ 20% | 4 |
+| ≥ 10% | 3 |
+| ≥ 5%  | 2 |
+| > 0%  | 1 |
+| ≤ 0%  | 0 |
+
+### Signals (out of 40)
+
+| Score | Signal |
+|---|---|
+| ≥ 30 | 🟢 STRONG BUY |
+| ≥ 22 | 🔵 BUY |
+| ≥ 15 | 🟡 HOLD |
+| ≥ 8  | 🟠 WEAK |
+| < 8  | 🔴 AVOID |
+
+### Confidence Score
+
+Base confidence = `(score / 40) × 80%`, with bonuses:
+- +5% if `|GMP delta| > 2%`
+- +5% if status is Open or Upcoming
+- +5% if GMP > 10%
+- Capped at 95%
 
 ---
 
