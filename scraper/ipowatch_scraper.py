@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 logger = logging.getLogger(__name__)
 
 API_URL = (
-    "https://webnodejs.investorgain.com/cloud/new/report/data-read"
+    "https://webnodejs.investorgain.com/cloud/v2/report/data-read/331/1/10/2026/2026-27/0/all?search=&v=10-18"
     "/331/1/4/2026/2026-27/0/all?search=&v=10-49"
 )
 
